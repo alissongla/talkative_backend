@@ -18,14 +18,14 @@ class ClassController {
   }
 
   async show ({ params }) {
-    const _class = await Class.findOrFail(params.id)
+    const _class = await Class.findByOrFail('MOD_CODIGO', params.id)
 
     return _class
   }
 
   async update ({ params, request }) {
     const _class = await Class.findOrFail(params.id)
-    const data = request.only(['MOD_CODIGO', 'AUL_NOME', 'TXT_CODIGO', 'EXE_CODIGO'])
+    const data = request.only(['MOD_CODIGO', 'AUL_NOME', 'TXT_CODIGO'])
 
     _class.merge(data)
 

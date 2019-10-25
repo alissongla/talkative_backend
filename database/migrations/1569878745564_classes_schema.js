@@ -18,11 +18,6 @@ class ClassesSchema extends Schema {
            .references('TXT_CODIGO')
            .inTable('texts')
            .onDelete('set null')
-      table.integer('EXE_CODIGO')
-           .unsigned()
-           .references('EXE_CODIGO')
-           .inTable('exercises')
-           .onDelete('set null')
       table.timestamps()
     })
   }

@@ -3,9 +3,9 @@
 const Module = use('App/Models/Module')
 
 class ModuleController {
-  async index ({auth}) {
+  async index () {
     const modules = Module.all()
-    return auth.user
+    return modules
   }
 
   async store ({ request }) {

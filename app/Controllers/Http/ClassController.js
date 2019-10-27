@@ -18,7 +18,7 @@ class ClassController {
   }
 
   async show ({ params }) {
-    const _class = await Class.findByOrFail('MOD_CODIGO', params.id)
+    const _class = await Class.query().where('MOD_CODIGO', params.id).fetch()
 
     return _class
   }

@@ -9,7 +9,7 @@ class ExerciseController {
   }
 
   async store ({ request }) {
-    const data = request.only(['EXE_LINGUA', 'EXE_ENUNCIADO', 'EXE_RESPOSTA'])
+    const data = request.only(['EXE_LINGUA', 'EXE_ENUNCIADO', 'EXE_RESPOSTA', 'AUL_CODIGO'])
 
     const _exercise = await Exercise.create({ ...data })
 
@@ -17,7 +17,7 @@ class ExerciseController {
   }
 
   async show ({ params }) {
-    const _exercise = await Exercise.findByOrFail('AUL_CODIGO', params.id)
+    const _exercise = await Exercise.query().where('AUL_CODIGO', params.id).fetch()
 
     return _exercise
   }

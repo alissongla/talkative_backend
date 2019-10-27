@@ -3,6 +3,7 @@
 const Route = use('Route')
 
 Route.get('users', 'UserController.index').middleware(['auth'])
+Route.put('users', 'UserController.update').middleware(['auth'])
 Route.post('users', 'UserController.store')
 Route.post('sessions', 'SessionController.store')
 
